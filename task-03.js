@@ -18,11 +18,14 @@ class Storage {
   addItem(item) {
     this.items.push(item);
   }
+  // removeItem(item) {
+  //   if (this.items.includes(item, 0)) {
+  //     const position = this.items.indexOf(item);
+  //     this.items.splice(position, 1);
+  //   }
+  // }
   removeItem(item) {
-    if (this.items.includes(item, 0)) {
-      const position = this.items.indexOf(item);
-      this.items.splice(position, 1);
-    }
+    this.items = this.items.filter((items) => !items.includes(item, 0));
   }
 }
 
@@ -32,8 +35,7 @@ const storage = new Storage([
   "Железные жупи",
   "Антигравитатор"
 ]);
-// console.log(storage.filter(items => items.includes("Пролонгер")));
-// console.log(storage.items.filter(items => items.includes("Пролонгер")));
+// console.log(storage.items.filter(items => items.includes("Пролонгер", 0)));
 
 const items = storage.getItems();
 console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
